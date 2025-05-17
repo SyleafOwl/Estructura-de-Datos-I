@@ -7,6 +7,7 @@ public class WordPair {
         this.spanish = spanish.toLowerCase();
     }
 
+    
     // Getters
     public String getEnglish() {
         return english;

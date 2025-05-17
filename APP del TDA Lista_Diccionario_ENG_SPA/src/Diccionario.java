@@ -10,6 +10,7 @@ public class Diccionario {
             this.palabra = palabra;
             this.siguiente = null;
         }
+
     }
 
     public Diccionario() {
@@ -60,8 +61,8 @@ public class Diccionario {
         Nodo actual = head;
         sb.append("\n--- Diccionario Completo ---\n");
         while (actual != null) {
-            sb.append(String.format("%-15s → %-15s\n", 
-                actual.palabra.getEnglish(), actual.palabra.getSpanish()));
+            sb.append(String.format("%s   |   %s\n", 
+                actual.palabra.getEnglish().toUpperCase(), actual.palabra.getSpanish().toUpperCase()));
             actual = actual.siguiente;
         }
         sb.append("Total: ").append(size).append(" palabras\n");

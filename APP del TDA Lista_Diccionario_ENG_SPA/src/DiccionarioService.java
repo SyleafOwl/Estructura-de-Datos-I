@@ -39,6 +39,7 @@ public class DiccionarioService {
         System.out.println("2. Español a Inglés");
         System.out.println("3. Listas de palabras");
         System.out.println("4. Salir");
+        System.out.println("");
         System.out.print("Seleccione: ");
     }
 
