@@ -73,4 +73,68 @@ public class ListaEnlazada {
         System.out.println("null");
     }
 
+    // ========== MÉTODOS DE ELIMINACIÓN ========== //
+    
+    /**
+     * Elimina el PRIMER elemento de la lista
+     * 1. Si la lista está vacía, no hace nada
+     * 2. Head apunta al siguiente nodo
+     * 3. Disminuye el tamaño
+     */
+    public void eliminarAlInicio() {
+        if (!estaVacia()) {
+            head = head.siguiente;
+            size--;
+        }
+    }
+
+    /**
+     * Elimina el ÚLTIMO elemento de la lista
+     * 1. Si la lista está vacía, no hace nada
+     * 2. Si solo hay un elemento, vacía la lista
+     * 3. Recorre hasta el penúltimo nodo y elimina su referencia al último
+     * 4. Disminuye el tamaño
+     */
+    
+    public void eliminarAlFinal() {
+        if (estaVacia()) return;
+        
+        if (head.siguiente == null) {
+            head = null;
+        } else {
+            Nodo actual = head;
+            while (actual.siguiente.siguiente != null) {
+                actual = actual.siguiente;
+            }
+            actual.siguiente = null;
+        }
+        size--;
+    }
+
+    /**
+     * Elimina un elemento específico de la lista
+     * @param dato Valor a eliminar
+     * @return true si encontró y eliminó el elemento, false si no existe
+     */
+    public boolean eliminarElemento(int dato) {
+        if (estaVacia()) return false;
+
+        // Caso especial: eliminar el primer elemento
+        if (head.dato == dato) {
+            eliminarAlInicio();
+            return true;
+        }
+
+        Nodo actual = head;
+        while (actual.siguiente != null) {
+            if (actual.siguiente.dato == dato) {
+                actual.siguiente = actual.siguiente.siguiente;
+                size--;
+                return true;
+            }
+            actual = actual.siguiente;
+        }
+        return false;
+    }
+
 }
