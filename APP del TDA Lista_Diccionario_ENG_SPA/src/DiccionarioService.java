@@ -48,7 +48,7 @@ public class DiccionarioService {
         String traduccion = diccionario.buscarIngles(palabra);
 
         if (traduccion != null) {
-            System.out.printf("Traducción: %s es %s\n", palabra, traduccion);
+            System.out.printf("Traducción: %s es %s\n", palabra, traduccion.toUpperCase());
         } else {
             System.out.printf("'%s' no encontrada. ¿Agregar? (s/n): ", palabra);
             if (scanner.nextLine().equalsIgnoreCase("s")) {
@@ -63,7 +63,7 @@ public class DiccionarioService {
         String traduccion = diccionario.buscarEspanol(palabra);
 
         if (traduccion != null) {
-            System.out.printf("Traducción: %s es %s\n", palabra, traduccion);
+            System.out.printf("Traducción: %s es %s\n", palabra, traduccion.toUpperCase());
         } else {
             System.out.printf("'%s' no encontrada. ¿Agregar? (s/n): ", palabra);
             if (scanner.nextLine().equalsIgnoreCase("s")) {
