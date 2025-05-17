@@ -69,6 +69,62 @@ public class Diccionario {
         return sb.toString();
     }
 
+    // Dentro de la clase Diccionario...
+
+    /**
+     * Elimina una palabra por su versión en inglés
+     * @param palabra Palabra en inglés a eliminar
+     * @return true si se eliminó, false si no se encontró
+     */
+    public boolean eliminarPorIngles(String palabra) {
+        if (head == null) return false;
+        
+        // Caso especial: eliminar el primer nodo
+        if (head.palabra.getEnglish().equals(palabra.toLowerCase())) {
+            head = head.siguiente;
+            size--;
+            return true;
+        }
+        
+        Nodo actual = head;
+        while (actual.siguiente != null) {
+            if (actual.siguiente.palabra.getEnglish().equals(palabra.toLowerCase())) {
+                actual.siguiente = actual.siguiente.siguiente;
+                size--;
+                return true;
+            }
+            actual = actual.siguiente;
+        }
+        return false;
+    }
+
+    /**
+     * Elimina una palabra por su versión en español
+     * @param palabra Palabra en español a eliminar
+     * @return true si se eliminó, false si no se encontró
+     */
+    public boolean eliminarPorEspanol(String palabra) {
+        if (head == null) return false;
+        
+        // Caso especial: eliminar el primer nodo
+        if (head.palabra.getSpanish().equals(palabra.toLowerCase())) {
+            head = head.siguiente;
+            size--;
+            return true;
+        }
+        
+        Nodo actual = head;
+        while (actual.siguiente != null) {
+            if (actual.siguiente.palabra.getSpanish().equals(palabra.toLowerCase())) {
+                actual.siguiente = actual.siguiente.siguiente;
+                size--;
+                return true;
+            }
+            actual = actual.siguiente;
+        }
+        return false;
+    }
+
     public int getSize() {
         return size;
     }

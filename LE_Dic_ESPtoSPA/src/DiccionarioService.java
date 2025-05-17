@@ -25,6 +25,9 @@ public class DiccionarioService {
                     System.out.println(diccionario.listarPalabras());
                     break;
                 case 4:
+                    eliminarPalabra();
+                    break;
+                case 5:
                     System.out.println("¡Hasta pronto!");
                     System.exit(0);
                 default:
@@ -38,7 +41,8 @@ public class DiccionarioService {
         System.out.println("1. Inglés a Español");
         System.out.println("2. Español a Inglés");
         System.out.println("3. Listas de palabras");
-        System.out.println("4. Salir");
+        System.out.println("4. Eliminar palabra");
+        System.out.println("5. Salir");
         System.out.println("");
         System.out.print("Seleccione: ");
     }
@@ -85,4 +89,34 @@ public class DiccionarioService {
         }
         System.out.println("¡Palabra agregada!");
     }
+    private void eliminarPalabra() {
+        System.out.println("\nEliminar por:");
+        System.out.println("1. Inglés");
+        System.out.println("2. Español");
+        System.out.print("Seleccione opción: ");
+        
+        int opcion = Integer.parseInt(scanner.nextLine());
+        System.out.print("Ingrese la palabra a eliminar: ");
+        String palabra = scanner.nextLine();
+        
+        boolean eliminado = false;
+        switch(opcion) {
+            case 1:
+                eliminado = diccionario.eliminarPorIngles(palabra);
+                break;
+            case 2:
+                eliminado = diccionario.eliminarPorEspanol(palabra);
+                break;
+            default:
+                System.out.println("Opción no válida");
+                return;
+        }
+        
+        if (eliminado) {
+            System.out.println("Palabra eliminada correctamente");
+        } else {
+            System.out.println("La palabra no existe en el diccionario");
+        }
+    }
+    
 }
