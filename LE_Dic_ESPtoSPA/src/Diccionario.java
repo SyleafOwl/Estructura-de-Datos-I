@@ -73,8 +73,8 @@ public class Diccionario {
 
     /**
      * Elimina una palabra por su versión en inglés
-     * @param palabra Palabra en inglés a eliminar
-     * @return true si se eliminó, false si no se encontró
+     * Palabra en inglés a eliminar
+     * return true si se eliminó, false si no se encontró
      */
     public boolean eliminarPorIngles(String palabra) {
         if (head == null) return false;
@@ -100,8 +100,8 @@ public class Diccionario {
 
     /**
      * Elimina una palabra por su versión en español
-     * @param palabra Palabra en español a eliminar
-     * @return true si se eliminó, false si no se encontró
+     * Palabra en español a eliminar
+     * return true si se eliminó, false si no se encontró
      */
     public boolean eliminarPorEspanol(String palabra) {
         if (head == null) return false;
