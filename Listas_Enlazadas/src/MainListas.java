@@ -1,3 +1,4 @@
+public class MainListas {
 public static void main(String[] args) {
     ListaEnlazada lista = new ListaEnlazada();
         
@@ -20,4 +21,5 @@ public static void main(String[] args) {
     
     lista.eliminarElemento(20);
     lista.mostrar();  // Lista (0 elementos): null
+}
 }
