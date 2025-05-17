@@ -7,18 +7,25 @@ public class WordPair {
         this.spanish = spanish.toLowerCase();
     }
 
-    
-    // Getters
     public String getEnglish() {
         return english;
+    }
+
+    public void setEnglish(String english) {
+        this.english = english;
     }
 
     public String getSpanish() {
         return spanish;
     }
 
+    public void setSpanish(String spanish) {
+        this.spanish = spanish;
+    }
+
     @Override
     public String toString() {
-        return english + " - " + spanish;
+        return "WordPair [english=" + english + ", spanish=" + spanish + "]";
     }
+   
 }
