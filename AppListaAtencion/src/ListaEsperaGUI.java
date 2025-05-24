@@ -23,8 +23,8 @@ public class ListaEsperaGUI extends JFrame {
                     Persona persona = new Persona(nombre, edad);
         
                     // Agregar la persona con prioridad
-                    if (edad >= 65) {
-                        Lista.adicionarPersonaInicio(persona); // Alta prioridad: agregar al inicio
+                    if (edad > 65) {
+                        Lista.adicionarPersonaConPrioridad(persona); // Alta prioridad: agregar en orden
                     } else {
                         Lista.adicionarPersonaFinal(persona); // Baja prioridad: agregar al final
                     }

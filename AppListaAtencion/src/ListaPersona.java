@@ -20,6 +20,34 @@ public class ListaPersona {
         size++;
     }
 
+    public void adicionarPersonaConPrioridad(Persona persona) {
+        NodoPersona nuevoNodo = new NodoPersona(persona);
+    
+        if (head == null || head.persona.getEdad() <= persona.getEdad()) {
+            // Si la lista está vacía o la nueva persona tiene mayor edad que el primero
+            if (head != null) {
+                head.prev = nuevoNodo;
+            }
+            nuevoNodo.next = head;
+            head = nuevoNodo;
+        } else {
+            // Buscar la posición correcta para insertar
+            NodoPersona actual = head;
+            while (actual.next != null && actual.next.persona.getEdad() > persona.getEdad()) {
+                actual = actual.next;
+            }
+            nuevoNodo.next = actual.next;
+            if (actual.next != null) {
+                actual.next.prev = nuevoNodo;
+            }
+            actual.next = nuevoNodo;
+            nuevoNodo.prev = actual;
+        }
+        size++;
+    }
+
+    
+
     public void adicionarPersonaFinal(Persona persona){
         NodoPersona nuevoNodo = new NodoPersona(persona);
 
@@ -63,5 +91,7 @@ public class ListaPersona {
     
         return null; // Esto no debería ocurrir si el índice es válido
     }
+
+    
 
 }
