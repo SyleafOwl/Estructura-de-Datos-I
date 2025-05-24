@@ -45,4 +45,23 @@ public class ListaPersona {
         return cadena;
     }
 
+    public Persona obtenerPersona(int indice) {
+        if (indice < 0 || indice >= size) {
+            throw new IndexOutOfBoundsException("Índice fuera de rango");
+        }
+    
+        NodoPersona actual = head;
+        int contador = 0;
+    
+        while (actual != null) {
+            if (contador == indice) {
+                return actual.persona; // Devuelve la persona en el nodo actual
+            }
+            actual = actual.next;
+            contador++;
+        }
+    
+        return null; // Esto no debería ocurrir si el índice es válido
+    }
+
 }
