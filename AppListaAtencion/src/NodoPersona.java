@@ -1,7 +1,7 @@
 class NodoPersona{
-    Persona persona;
-    Nodo next;
-    Nodo prev;
+    public Persona persona;
+    public NodoPersona next;
+    public NodoPersona prev;
 
     public NodoPersona(Persona persona) {
         this.persona = persona;
@@ -12,6 +12,6 @@ class NodoPersona{
     public NodoPersona() {
         this.next = null;
         this.prev = null;
-    }    
+    }
 
 }

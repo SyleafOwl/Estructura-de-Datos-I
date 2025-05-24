@@ -3,11 +3,12 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class ListaEsperaGUI extends JFrame {
-    private DefaultListModel<String> modeloLista = new DefaultListModel<>();
-    private JList<String> jList = new JList<>(modeloLista);
+    //private DefaultListModel<String> modeloLista = new DefaultListModel<>();
+    //private JList<String> jList = new JList<>(modeloLista);
 
     public ListaEsperaGUI() {
         super("Lista de Espera");
+        ListaPersona Lista = new ListaPersona();
 
         JTextField nombreField = new JTextField(15);
         JTextField edadField = new JTextField(3);
@@ -20,7 +21,8 @@ public class ListaEsperaGUI extends JFrame {
                 try {
                     int edad = Integer.parseInt(edadTexto);
                     Persona persona = new Persona(nombre, edad);
-                    modeloLista.addElement(persona.toString());
+                    //modeloLista.addElement(persona.toString());
+
                     nombreField.setText("");
                     edadField.setText("");
                 } catch (NumberFormatException ex) {
@@ -38,7 +40,7 @@ public class ListaEsperaGUI extends JFrame {
 
         this.setLayout(new BorderLayout());
         this.add(formPanel, BorderLayout.NORTH);
-        this.add(new JScrollPane(jList), BorderLayout.CENTER);
+        this.add(new JScrollPane(), BorderLayout.CENTER);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(500, 300);
