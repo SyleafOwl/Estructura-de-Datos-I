@@ -1,6 +1,6 @@
 public class NodoSong {
     String name;
-    NodoSong next;
+    NodoSongDouble next;
 
     public NodoSong(String name) {
         this.name = name;

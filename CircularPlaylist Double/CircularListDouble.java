@@ -1,6 +1,6 @@
 public class CircularListDouble {
-    NodoSong head;
-    NodoSong current;
+    NodoSongDouble head;
+    NodoSongDouble current;
     int size;
 
     public CircularListDouble() {
@@ -10,14 +10,14 @@ public class CircularListDouble {
     }
 
     public void add(String name) {
-        NodoSong newNode = new NodoSong(name);
+        NodoSongDouble newNode = new NodoSongDouble(name);
         if (head == null) {
             head = newNode;
             current = head;
             head.next = head; // Circular link
         } else {
             newNode.next = head;
-            NodoSong temp = head;
+            NodoSongDouble temp = head;
             while (temp.next != head) {
                 temp = temp.next;
             }
@@ -39,7 +39,7 @@ public class CircularListDouble {
         if (current == null) {
             return "";
         }
-        NodoSong temp = head;
+        NodoSongDouble temp = head;
         while (temp.next != current) {
             temp = temp.next; // Find the previous node
         }

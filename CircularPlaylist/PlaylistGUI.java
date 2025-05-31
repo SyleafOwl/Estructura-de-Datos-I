@@ -6,7 +6,6 @@ public class PlaylistGUI extends JFrame {
     private CircularListDouble playlist;
     private JLabel songLabel;
     private JButton nextButton;
-    private JButton previousButton;
 
     public PlaylistGUI() {
         setTitle("🎬 Circular Playlist");
@@ -20,7 +19,6 @@ public class PlaylistGUI extends JFrame {
         songLabel = new JLabel("Current song: " + playlist.getCurrentSong(), JLabel.CENTER);
         songLabel.setFont(new Font("Arial", Font.PLAIN, 16));
         nextButton = new JButton("▶ Next");
-        previousButton = new JButton("◁ Previous");
 
         nextButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -30,17 +28,8 @@ public class PlaylistGUI extends JFrame {
             }
         });
 
-        previousButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                //TODO
-                String name = playlist.previousSong();
-                songLabel.setText("Current song: " + name);
-            }
-        });
-
         add(songLabel, BorderLayout.CENTER);
-        add(nextButton, BorderLayout.NORTH);
-        add(previousButton, BorderLayout.SOUTH);
+        add(nextButton, BorderLayout.SOUTH);
 
         setLocationRelativeTo(null);
         setVisible(true);
@@ -54,6 +43,6 @@ public class PlaylistGUI extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new PlaylistGUI());
+        SwingUtilities.invokeLater(() -> new PlaylistGUIDouble());
     }
 }
