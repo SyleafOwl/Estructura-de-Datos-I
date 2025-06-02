@@ -14,8 +14,8 @@ public class PlaylistGUIDouble extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        playlist = new CircularListDouble(); //Create a new CircularList instance
-        loadSongs(); // Load some songs into the playlist
+        playlist = new CircularListDouble(); 
+        loadSongs(); 
 
         songLabel = new JLabel("Current song: " + playlist.getCurrentSong(), JLabel.CENTER);
         songLabel.setFont(new Font("Arial", Font.PLAIN, 16));

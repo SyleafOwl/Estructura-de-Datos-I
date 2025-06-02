@@ -5,8 +5,9 @@ public class CircularListDouble {
 
     public CircularListDouble() {
         head = null;
-        current = null;
+        current = head;
         size = 0;
+        
     }
 
     public void add(String name) {
@@ -14,41 +15,40 @@ public class CircularListDouble {
         if (head == null) {
             head = newNode;
             current = head;
-            head.next = head; // Circular link
+            head.next = head; 
+            head.previous = head; 
         } else {
-            newNode.next = head;
             NodoSongDouble temp = head;
             while (temp.next != head) {
                 temp = temp.next;
             }
-            temp.next = newNode; // Link the last node to the new node
+            temp.next = newNode; // Enlace al nuevo nodo
+            newNode.previous = temp; // Enlace al nodo anterior
+            newNode.next = head; // Enlace al head para continuar lo circular
+            head.previous = newNode; // Actualiza lo anterior del head
         }
         size++;
     }
 
     public String nextSong() {
         if (current == null) {
-            return "";
+            return ""; 
         }
-        String songName = current.name;
-        current = current.next; // Move to the next song
-        return songName;
+        current = current.next; // Mueve directamente al nodo siguiente
+        return current.name; // Retorna el nombre de la canción en el nodo actual.
     }
 
     public String previousSong() {
         if (current == null) {
-            return "";
+            return ""; 
         }
-        NodoSongDouble temp = head;
-        while (temp.next != current) {
-            temp = temp.next; // Find the previous node
-        }
-        current = temp; // Move to the previous song
-        return current.name;
+        current = current.previous; // Mueve directamente al nodo anterior
+        return current.name; // Retorna el nombre de la canción en el nodo actual.
     }
 
     public String getCurrentSong() {
-        return "";
+
+        return current.name;
     }
 
     public boolean isEmpty() {
