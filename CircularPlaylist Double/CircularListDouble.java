@@ -5,7 +5,7 @@ public class CircularListDouble {
 
     public CircularListDouble() {
         head = null;
-        current = head;
+        current = null;
         size = 0;
         
     }
