@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class PlaylistGUI extends JFrame {
-    private CircularListDouble playlist;
+    private CircularList playlist;
     private JLabel songLabel;
     private JButton nextButton;
 
@@ -13,7 +13,7 @@ public class PlaylistGUI extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        playlist = new CircularListDouble(); //Create a new CircularList instance
+        playlist = new CircularList(); //Create a new CircularList instance
         loadSongs(); // Load some songs into the playlist
 
         songLabel = new JLabel("Current song: " + playlist.getCurrentSong(), JLabel.CENTER);
@@ -43,6 +43,6 @@ public class PlaylistGUI extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new PlaylistGUIDouble());
+        SwingUtilities.invokeLater(() -> new PlaylistGUI());
     }
 }
