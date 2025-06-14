@@ -8,10 +8,4 @@ class NodoPersona{
         this.next = null;
         this.prev = null;
     }
-
-    public NodoPersona() {
-        this.next = null;
-        this.prev = null;
-    }
-
 }
