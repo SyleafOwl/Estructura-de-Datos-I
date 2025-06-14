@@ -30,9 +30,8 @@ public class CircularList {
         if (current == null) {
             return "";
         }
-        String songName = current.name;
         current = current.next; // Move to the next song
-        return songName;
+        return current.name;
     }
 
     public String getCurrentSong() {
