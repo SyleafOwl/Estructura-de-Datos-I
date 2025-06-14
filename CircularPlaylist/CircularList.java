@@ -16,12 +16,12 @@ public class CircularList {
             current = head;
             head.next = head; // Circular link
         } else {
-            newNode.next = head;
             NodoSong temp = head;
             while (temp.next != head) {
                 temp = temp.next;
             }
             temp.next = newNode; // Link the last node to the new node
+            newNode.next = head;
         }
         size++;
     }
