@@ -9,7 +9,6 @@ public class ListaPersona {
     
     public void adicionarPersonaInicio(Persona persona){
         NodoPersona nuevoNodo = new NodoPersona(persona);
-
         if (head == null) {
             head = nuevoNodo;            
         }else{
