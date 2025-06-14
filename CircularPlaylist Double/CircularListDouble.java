@@ -47,7 +47,6 @@ public class CircularListDouble {
     }
 
     public String getCurrentSong() {
-
         return current.name;
     }
 
