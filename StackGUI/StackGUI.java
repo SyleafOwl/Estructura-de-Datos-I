@@ -30,10 +30,12 @@ public class StackGUI extends JFrame {
         JButton peekBtn = new JButton("Peek");
         JButton sizeBtn = new JButton("Size");
         JButton clearBtn = new JButton("Clear");
+        JButton verificarCerraduraBtn = new JButton("Verficar Cerradura");
         line2.add(popBtn);
         line2.add(peekBtn);
         line2.add(sizeBtn);
         line2.add(clearBtn);
+        line2.add(verificarCerraduraBtn);
 
         controls.add(line1);
         controls.add(line2);
@@ -54,6 +56,42 @@ public class StackGUI extends JFrame {
             JOptionPane.showMessageDialog(this, "Pop (Desempilar): " + v);
             refreshView();
         }));
+
+        verificarCerraduraBtn.addActionListener(e -> performSafe(() -> {
+            String texto = input.getText().trim();
+            // Limpia la pila antes de verificar
+            while (stack.size() > 0) stack.pop();
+            // Verifica si hay paréntesis o llaves
+            if (texto.contains("(") || texto.contains(")") || texto.contains("{") || texto.contains("}")) {
+                JOptionPane.showMessageDialog(this, "Error: Solo se permiten corchetes [ ]", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            boolean cerrado = true;
+            for (char c : texto.toCharArray()) {
+                if (c == '[') {
+                    stack.push(String.valueOf(c));
+                } else if (c == ']') {
+                    if (stack.size() == 0) {
+                        cerrado = false;
+                        break;
+                    }
+                    String top = (String) stack.pop();
+                    if (!top.equals("["))  {
+                        cerrado = false;
+                        break;
+                    }
+                }
+            }
+            if (cerrado && stack.size() == 0) {
+                JOptionPane.showMessageDialog(this, "Cerradura Valida");
+            } else {
+                JOptionPane.showMessageDialog(this, "Cerradura Invalida");
+            }
+            refreshView();
+        }));
+
+        // Uncomment the following lines if you want to enable peek, size, and clear functionality
+
 /*
         peekBtn.addActionListener(e -> performSafe(() -> {
             //String v = stack.peek();
