@@ -29,6 +29,7 @@ public class CircularListDouble {
         }
         size++;
     }
+    
 
     public String nextSong() {
         if (current == null) {
